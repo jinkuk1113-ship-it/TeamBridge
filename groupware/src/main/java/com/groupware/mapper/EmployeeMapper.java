@@ -1,5 +1,6 @@
 package com.groupware.mapper;
 
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -40,6 +41,7 @@ public interface EmployeeMapper {
 	int updateContact(@Param("employeeId") int employeeId, @Param("employeePhone") String employeePhone,
 			@Param("employeeEmail") String employeeEmail, @Param("profileImg") String profileImg);
 
+
 	// 관리자: 계정 목록 조회 - keyword는 이름 검색어(없으면 전체)
 	List<EmployeeDTO> findAll(@Param("keyword") String keyword);
 
@@ -55,4 +57,5 @@ public interface EmployeeMapper {
 	// 관리자: 신규 등록 시 사번 채번용 - 해당 연도(year, 4자리) + 순번(3자리) 형식 중
 	// 이미 존재하는 것 중 가장 큰 값을 조회 (없으면 null). "___"는 순번 3자리 자리표시.
 	String findMaxEmployeeNoByYear(@Param("year") String year);
+
 }
